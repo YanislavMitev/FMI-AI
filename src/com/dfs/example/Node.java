@@ -1,16 +1,25 @@
+/**
+ * Copyright 14.10.2018 (C) YanislavMitev
+ */
+
 package com.dfs.example;
 
 import java.util.Objects;
 
-public class Block {
+/**
+ * Class that represents a node.
+ * Holds the coordinates of the node.
+ * Holds the parent element of that node.
+ */
+public class Node {
     private int xAxis;
     private int yAxis;
-    private boolean visited;
 
-    Block(int xAxis, int yAxis){
+    private Node parent;
+
+    Node(int xAxis, int yAxis) {
         this.setXAxis(xAxis);
         this.setYAxis(yAxis);
-        this.visited = false;
     }
 
     public int getXAxis() {
@@ -18,28 +27,25 @@ public class Block {
     }
 
     public void setXAxis(int xAxis) {
-        if (xAxis >= 0) {
-            this.xAxis = xAxis;
-        }
 
+        this.xAxis = xAxis;
     }
 
     public int getYAxis() {
         return this.yAxis;
     }
 
-    public void setYAxis(int yAxis){
-        if (yAxis >= 0) {
-            this.yAxis = yAxis;
-        }
+    public void setYAxis(int yAxis) {
+
+        this.yAxis = yAxis;
     }
 
-    public void setVisited() {
-        this.visited = true;
+    public Node getParent() {
+        return this.parent;
     }
 
-    public boolean isVisited() {
-        return this.visited;
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
 
     @Override
@@ -51,15 +57,16 @@ public class Block {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof Block))
+        if (!(o instanceof Node))
             return false;
-        Block block = (Block) o;
-        return xAxis == block.xAxis &&
-                yAxis == block.yAxis;
+        Node node = (Node) o;
+        return xAxis == node.xAxis &&
+                yAxis == node.yAxis;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(xAxis, yAxis);
     }
+
 }
