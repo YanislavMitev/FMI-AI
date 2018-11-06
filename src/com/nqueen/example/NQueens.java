@@ -148,28 +148,6 @@ public class NQueens {
     }
 
     /**
-     * Initializes the table.
-     *
-     * Prints the unresolved table.
-     *
-     * Resolves conflicts.
-     *
-     * Prints the conflicts-free table.
-     */
-    private static void nQueenMinConflicts() {
-        int[] table = getRandomQueenColumnPosition(9);
-        System.out.println("Scrambled table\n----------------------------------");
-
-        printTable(table);
-
-        System.out.println("Resolved table\n----------------------------------");
-
-        table = resolveConflicts(table);
-
-        printTable(table);
-    }
-
-    /**
      * Prints the table.
      *
      * @param table is NxN table of N queens, each column is consisted of only one queen.
@@ -187,7 +165,29 @@ public class NQueens {
         }
     }
 
+    /**
+     * Initializes the table.
+     *
+     * Prints the unresolved table.
+     *
+     * Resolves conflicts.
+     *
+     * Prints the conflicts-free table.
+     */
+    private static void nQueenMinConflicts(int size) {
+        int[] table = getRandomQueenColumnPosition(size);
+        System.out.println("Scrambled table\n----------------------------------");
+
+        printTable(table);
+
+        System.out.println("Resolved table\n----------------------------------");
+
+        table = resolveConflicts(table);
+
+        printTable(table);
+    }
+
     public static void main(String[] args) {
-        nQueenMinConflicts();
+        nQueenMinConflicts(9);
     }
 }
