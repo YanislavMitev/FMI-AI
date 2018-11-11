@@ -99,8 +99,5 @@ public class AStar {
         System.out.println(Arrays.toString(table[2]));
 
         initializeNeighbours();
-
-
-
     }
 }
